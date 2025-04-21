@@ -14,6 +14,9 @@ implement the following user stories:
 
 ## How to run the application
 
+JDK 17 and Docker are required to run this application. If docker is not available, it can be run on host system too.
+The following sections list the steps to run the application with or without Docker.
+
 #### Using Docker
 Application can be run using docker. The following steps can be used to run the application
 
