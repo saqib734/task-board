@@ -15,7 +15,7 @@ implement the following user stories:
 ## How to run the application
 
 #### Using Docker
-Application can be run using docker. The following command can be used to build the application
+Application can be run using docker. The following steps can be used to run the application
 
 - Build the application
 ```shell
@@ -24,7 +24,7 @@ Application can be run using docker. The following command can be used to build 
 
 - Build the docker image
 ```shell
-  docker build -t taskboard-api.
+  docker build -t taskboard-api .
 ```  
 
 - Run the docker container. It exposed the APIs on port 9080.
