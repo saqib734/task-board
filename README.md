@@ -18,25 +18,37 @@ implement the following user stories:
 Application can be run using docker. The following command can be used to build the application
 
 - Build the application
+```shell
   ./gradlew build
+```
+
 - Build the docker image
-  docker build -t taskboard-api .
+```shell
+  docker build -t taskboard-api.
+```  
+
 - Run the docker container. It exposed the APIs on port 9080.
+```shell
   docker run -p 9080:8080 taskboard-api
+```
 
 #### Using java (Host system)
 In case docker is not installed on the host system, application can be run on host system using below steps. Java should be installed
 
 - Build the application
+```shell
   ./gradlew build
+```
 - Run the application. It exposes the APIs on port 9080.
+```shell
   java -jar build/libs/task-board-0.0.1-SNAPSHOT.jar --server.port=9080
+```
 
 ## Sample API requests
 
 #### Create a list
 
-```
+```shell
 curl --location 'http://localhost:9080/api/v1/lists' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -46,7 +58,7 @@ curl --location 'http://localhost:9080/api/v1/lists' \
 
 #### Add a task to a list
 
-```
+```shell
 curl --location 'http://localhost:9080/api/v1/lists/3/tasks' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -57,7 +69,7 @@ curl --location 'http://localhost:9080/api/v1/lists/3/tasks' \
 
 #### Get all lists with their tasks
 
-```
+```shell
 curl --location --request GET 'http://localhost:9080/api/v1/lists' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -68,7 +80,7 @@ curl --location --request GET 'http://localhost:9080/api/v1/lists' \
 
 #### Update a task
 
-```
+```shell
 curl --location --request PUT 'http://localhost:9080/api/v1/lists/tasks/1' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -79,7 +91,7 @@ curl --location --request PUT 'http://localhost:9080/api/v1/lists/tasks/1' \
 
 #### Move a task to a different list
 
-```
+```shell
 curl --location 'http://localhost:9080/api/v1/lists/tasks/2/move/1' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -90,7 +102,7 @@ curl --location 'http://localhost:9080/api/v1/lists/tasks/2/move/1' \
 
 #### Delete a list
 
-```
+```shell
 curl --location --request DELETE 'http://localhost:9080/api/v1/lists/1' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -99,7 +111,7 @@ curl --location --request DELETE 'http://localhost:9080/api/v1/lists/1' \
 ```
 
 #### Delete a task
-```
+```shell
 curl --location --request DELETE 'http://localhost:9080/api/v1/lists/tasks/3' \
 --header 'Content-Type: application/json' \
 --data '{
