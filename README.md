@@ -61,7 +61,7 @@ curl --location 'http://localhost:9080/api/v1/lists' \
 #### Add a task to a list
 
 ```shell
-curl --location 'http://localhost:9080/api/v1/lists/3/tasks' \
+curl --location 'http://localhost:9080/api/v1/lists/1/tasks' \
 --header 'Content-Type: application/json' \
 --data '{
 "name": "Task 2",
@@ -70,14 +70,10 @@ curl --location 'http://localhost:9080/api/v1/lists/3/tasks' \
 ```
 
 #### Get all lists with their tasks
-
+This API returns all lists and tasks that have been created. It is generally not a good idea to return
+an unbounded list in API response, and it is best to paginate the API.
 ```shell
-curl --location --request GET 'http://localhost:9080/api/v1/lists' \
---header 'Content-Type: application/json' \
---data '{
-    "name": "task 1",
-    "description": "description 1"
-}'
+curl --location --request GET 'http://localhost:9080/api/v1/lists' 
 ```
 
 #### Update a task
@@ -94,31 +90,18 @@ curl --location --request PUT 'http://localhost:9080/api/v1/lists/tasks/1' \
 #### Move a task to a different list
 
 ```shell
-curl --location 'http://localhost:9080/api/v1/lists/tasks/2/move/1' \
---header 'Content-Type: application/json' \
---data '{
-"name": "task 1",
-"description": "description 1"
-}'
+curl --location --request POST 'http://localhost:9080/api/v1/lists/tasks/2/move/1' 
 ```
 
 #### Delete a list
 
 ```shell
-curl --location --request DELETE 'http://localhost:9080/api/v1/lists/1' \
---header 'Content-Type: application/json' \
---data '{
-    "name": "ToDo-Apr-22"
-}'
+curl --location --request DELETE 'http://localhost:9080/api/v1/lists/1' 
 ```
 
 #### Delete a task
 ```shell
-curl --location --request DELETE 'http://localhost:9080/api/v1/lists/tasks/3' \
---header 'Content-Type: application/json' \
---data '{
-    "name": "ToDo-Apr-22"
-}'
+curl --location --request DELETE 'http://localhost:9080/api/v1/lists/tasks/1' 
 ```
 
 ## Design Considerations

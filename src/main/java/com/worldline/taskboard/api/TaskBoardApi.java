@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/v1/lists")
 public interface TaskBoardApi {
 
+  /**
+   * This API returns all lists along with their tasks.
+   * TODO: It would be best to paginate the API, as returning an unbounded list in response is not a good idea
+   * @return TaskList
+   */
   @GetMapping
   java.util.List<TaskList> getAllListsWithTasks();
 
